@@ -16,7 +16,7 @@ func Register(c *gin.Context) {
 		return
 	}
 
-	database.USers = append(database.USers, user)
+	database.Users = append(database.Users, user)
 
 	c.JSON(http.StatusOK, gin.H{
 		"message": "Usuário cadastrado",
@@ -29,7 +29,7 @@ func Login(c *gin.Context) {
 	c.ShouldBindJSON(&input)
 	for _, user := range database.Users {
 
-		if user.Email == input.Email && user.Password == input.password {
+		if user.Email == input.Email && user.Password == input.Password {
 			c.JSON(http.StatusOK, gin.H{
 				"message": "Login realizado",
 			})
